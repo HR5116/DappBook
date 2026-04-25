@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decentralized Book Rental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon">📚</span>
+            <h1>BookRental DApp</h1>
+        </div>
+        <button id="connectBtn" class="btn-primary">Connect Wallet</button>
+    </nav>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Welcome to the Decentralized Library</h2>
+            <p>List your books securely on the blockchain, or rent books seamlessly using smart contracts and IPFS.</p>
+        </section>
+
+        <div class="dashboard hidden" id="dashboard">
+            <section class="card list-book-section">
+                <h3>List a New Item</h3>
+                <form id="listBookForm">
+                    <div class="form-group">
+                        <label for="ipfsCID">IPFS CID (Book Metadata)</label>
+                        <input type="text" id="ipfsCID" placeholder="QmHash..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dailyPrice">Daily Rental Price (ETH)</label>
+                        <input type="number" step="0.0001" id="dailyPrice" placeholder="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deposit">Security Deposit (ETH)</label>
+                        <input type="number" step="0.0001" id="deposit" placeholder="0.05" required>
+                    </div>
+                    <button type="submit" class="btn-action" id="listBookBtn">List Item</button>
+                </form>
+            </section>
+
+            <section class="card rent-book-section">
+                <h3>Rent an Item</h3>
+                <form id="rentBookForm">
+                    <div class="form-group">
+                        <label for="bookId">Item ID</label>
+                        <input type="number" id="bookId" placeholder="1" required>
+                    </div>
+                    <button type="submit" class="btn-action" id="rentBookBtn">Rent Item</button>
+                </form>
+            </section>
+        </div>
+        
+        <div id="statusMessage" class="status-message"></div>
+    </main>
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.2.umd.min.js" type="application/javascript"></script>
+    <script src="app.js"></script>
+</body>
+</html>

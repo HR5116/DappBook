@@ -1,0 +1,55 @@
+
+
+
+Version
+=======
+> solidity-coverage: v0.8.17
+
+Instrumenting for coverage...
+=============================
+
+> BookRental.sol
+
+Compilation:
+============
+
+Compiled 5 Solidity files successfully (evm target: paris).
+
+Network Info
+============
+> HardhatEVM: v2.28.6
+> network:    hardhat
+
+
+
+  BookRental
+    listItem
+      ✔ Should successfully list an item
+      ✔ Should revert if non-owner tries to list
+    rentItem
+      ✔ Should successfully rent an item
+      ✔ Should fail if rented already
+      ✔ Should fail if zero or insufficient payment
+    returnItem
+      ✔ Should allow renter to return
+    confirmReturn
+      ✔ Should refund deposit to renter and close rental
+      ✔ Should auto-refund to renter after 48 hours
+    raiseDispute & resolveDispute
+      ✔ Should allow renter to raise dispute
+      ✔ Should allow arbitrator to resolve dispute in owner's favour
+      ✔ Should revert if non-arbitrator resolves
+
+
+  11 passing (738ms)
+
+-----------------|----------|----------|----------|----------|----------------|
+File             |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+-----------------|----------|----------|----------|----------|----------------|
+ contracts/      |      100 |    60.87 |      100 |    93.94 |                |
+  BookRental.sol |      100 |    60.87 |      100 |    93.94 |122,132,143,144 |
+-----------------|----------|----------|----------|----------|----------------|
+All files        |      100 |    60.87 |      100 |    93.94 |                |
+-----------------|----------|----------|----------|----------|----------------|
+
+> Istanbul reports written to ./coverage/ and ./coverage.json
