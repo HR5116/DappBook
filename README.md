@@ -3,8 +3,11 @@
 **Project Number:** Project 1 – Decentralised Book Rental
 
 ## Team Members
+- Mohd Hassan Raza Kalim Ansari - 240008019
 - Dhyan Chandra C - 240041014
-- [Member 2 Name] - [Roll Number 2]
+- Manish Garasiya - 240041026
+- Manjeet Kumar - 240041027
+- Harsha Varshan Bonu - 240001020
 - *(Add missing members here)*
 
 ## Project Features
