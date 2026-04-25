@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-This is the readme for this
 =======
 # Decentralized Book Rental Platform
 
