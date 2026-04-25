@@ -23,6 +23,13 @@
         </section>
 
         <div class="dashboard hidden" id="dashboard">
+            <section class="card marketplace-section">
+                <h3>Available Items</h3>
+                <div id="itemsList" class="items-grid">
+                    <p>Loading items...</p>
+                </div>
+            </section>
+
             <section class="card list-book-section">
                 <h3>List a New Item</h3>
                 <form id="listBookForm">
@@ -50,6 +57,39 @@
                         <input type="number" id="bookId" placeholder="1" required>
                     </div>
                     <button type="submit" class="btn-action" id="rentBookBtn">Rent Item</button>
+                </form>
+            </section>
+
+            <section class="card return-book-section">
+                <h3>Return an Item</h3>
+                <form id="returnBookForm">
+                    <div class="form-group">
+                        <label for="returnBookId">Item ID</label>
+                        <input type="number" id="returnBookId" placeholder="1" required>
+                    </div>
+                    <button type="submit" class="btn-action" id="returnBookBtn">Return Item</button>
+                </form>
+            </section>
+
+            <section class="card confirm-book-section">
+                <h3>Confirm Return</h3>
+                <form id="confirmBookForm">
+                    <div class="form-group">
+                        <label for="confirmBookId">Item ID</label>
+                        <input type="number" id="confirmBookId" placeholder="1" required>
+                    </div>
+                    <button type="submit" class="btn-action" id="confirmBookBtn" style="background: var(--success);">Confirm Return</button>
+                </form>
+            </section>
+
+            <section class="card dispute-section">
+                <h3>Raise Dispute</h3>
+                <form id="disputeBookForm">
+                    <div class="form-group">
+                        <label for="disputeBookId">Item ID</label>
+                        <input type="number" id="disputeBookId" placeholder="1" required>
+                    </div>
+                    <button type="submit" class="btn-action" id="raiseDisputeBtn" style="background: var(--error);">Raise Dispute</button>
                 </form>
             </section>
         </div>

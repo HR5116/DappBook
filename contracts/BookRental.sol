@@ -15,6 +15,7 @@ contract BookRental is ReentrancyGuard, Ownable {
     error BookRental__InvalidPrice();
     error BookRental__DepositTooLow();
     error BookRental__CannotRentOwnItem();
+    error BookRental__Unauthorized();
 
     enum Status { Available, Rented, AwaitingConfirm, InDispute, Closed }
 
@@ -158,12 +159,12 @@ contract BookRental is ReentrancyGuard, Ownable {
         emit ReturnConfirmed(_itemId, refundAmount);
     }
 
-    /// @notice Renter raises dispute if owner refuses to confirm
+    /// @notice Owner or Renter can raise a dispute
     /// @param _itemId The ID of the item
     function raiseDispute(uint256 _itemId) external {
         Item storage item = items[_itemId];
         if (item.status != Status.AwaitingConfirm) revert BookRental__InvalidStatus();
-        if (msg.sender != item.renter) revert BookRental__NotRenter();
+        if (msg.sender != item.renter && msg.sender != item.owner) revert BookRental__Unauthorized();
 
         item.status = Status.InDispute;
         item.disputeRaisedAt = block.timestamp;

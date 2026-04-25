@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/home/hrwarrior/Documents/DAppBook/contracts/BookRental.sol": {
-      "lastModificationDate": 1777088486034,
-      "contentHash": "f9a9c1603b0ab9b348f175ba05e66b03",
+      "lastModificationDate": 1777111774621,
+      "contentHash": "0a7d5f770ebf1569fcca32bf34260cc1",
       "sourceName": "contracts/BookRental.sol",
       "solcConfig": {
         "version": "0.8.24",
