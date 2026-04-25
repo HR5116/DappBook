@@ -1,5 +1,3 @@
-=======
-This is the readme for this
 # Decentralized Book Rental Platform
 
 **Project Number:** Project 1 – Decentralised Book Rental
