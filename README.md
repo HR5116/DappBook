@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 =======
+=======
+This is the readme for this
+>>>>>>> 9ca9307 (Update frontend and add smart contract)
 # Decentralized Book Rental Platform
 
 **Project Number:** Project 1 – Decentralised Book Rental
@@ -74,4 +78,3 @@ We have strictly adhered to the privacy requirements:
 ## Known Issues / Limitations
 - Off-chain IPFS CID requires pinning; if unpinned by the host, metadata might become unavailable.
 - Testnet deployment commands have not yet been strictly added; currently focusing on Hardhat localhost testing.
->>>>>>> 1466a63 (Committed)
