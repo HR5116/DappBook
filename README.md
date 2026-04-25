@@ -3,9 +3,11 @@
 **Project Number:** Project 1 – Decentralised Book Rental
 
 ## Team Members
-- [Member 1 Name] - [Roll Number 1]
-- [Member 2 Name] - [Roll Number 2]
-- *(Add missing members here)*
+- Mohd Hassan Raza Kalim Ansari - 24008019
+- Harsha Vardhan Bonu - 24001020
+- Manish Garasiya - 240041026
+- Manjeet Kumar - 240041027
+- Dhyan Chandra C - 240041014
 
 ## Project Features
 - **Item Listing**: Owners list books with a daily rate and deposit, metadata stored via IPFS CID.
