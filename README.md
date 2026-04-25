@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 =======
 This is the readme for this
->>>>>>> 9ca9307 (Update frontend and add smart contract)
 # Decentralized Book Rental Platform
 
 **Project Number:** Project 1 – Decentralised Book Rental
