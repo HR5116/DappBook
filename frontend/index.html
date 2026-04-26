@@ -3,101 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decentralized Book Rental</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>BookChain – Your Decentralized Library</title>
+    <meta name="description" content="Rent and lend books trustlessly on the blockchain — your digital library, powered by Ethereum.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">
+        <a href="index.html" class="logo">
             <span class="logo-icon">📚</span>
-            <h1>BookRental DApp</h1>
+            <h1>BookChain</h1>
+        </a>
+        <div class="nav-links">
+            <a href="owner.html">Lender</a>
+            <a href="renter.html">Reader</a>
+            <a href="arbitrator.html">Arbitrator</a>
         </div>
-        <button id="connectBtn" class="btn-primary">Connect Wallet</button>
     </nav>
 
-    <main class="container">
-        <section class="hero">
-            <h2>Welcome to the Decentralized Library</h2>
-            <p>List your books securely on the blockchain, or rent books seamlessly using smart contracts and IPFS.</p>
+    <main>
+        <section class="page-header" style="padding-top: 6rem; padding-bottom: 2rem;">
+            <h2>Your Decentralized Library</h2>
+            <p>Share, borrow, and discover books on the blockchain. No middlemen, no late fees — just trust through smart contracts.</p>
         </section>
 
-        <div class="dashboard hidden" id="dashboard">
-            <section class="card marketplace-section">
-                <h3>Available Items</h3>
-                <div id="itemsList" class="items-grid">
-                    <p>Loading items...</p>
-                </div>
-            </section>
-
-            <section class="card list-book-section">
-                <h3>List a New Item</h3>
-                <form id="listBookForm">
-                    <div class="form-group">
-                        <label for="ipfsCID">IPFS CID (Book Metadata)</label>
-                        <input type="text" id="ipfsCID" placeholder="QmHash..." required>
-                    </div>
-                    <div class="form-group">
-                        <label for="dailyPrice">Daily Rental Price (ETH)</label>
-                        <input type="number" step="0.0001" id="dailyPrice" placeholder="0.01" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="deposit">Security Deposit (ETH)</label>
-                        <input type="number" step="0.0001" id="deposit" placeholder="0.05" required>
-                    </div>
-                    <button type="submit" class="btn-action" id="listBookBtn">List Item</button>
-                </form>
-            </section>
-
-            <section class="card rent-book-section">
-                <h3>Rent an Item</h3>
-                <form id="rentBookForm">
-                    <div class="form-group">
-                        <label for="bookId">Item ID</label>
-                        <input type="number" id="bookId" placeholder="1" required>
-                    </div>
-                    <button type="submit" class="btn-action" id="rentBookBtn">Rent Item</button>
-                </form>
-            </section>
-
-            <section class="card return-book-section">
-                <h3>Return an Item</h3>
-                <form id="returnBookForm">
-                    <div class="form-group">
-                        <label for="returnBookId">Item ID</label>
-                        <input type="number" id="returnBookId" placeholder="1" required>
-                    </div>
-                    <button type="submit" class="btn-action" id="returnBookBtn">Return Item</button>
-                </form>
-            </section>
-
-            <section class="card confirm-book-section">
-                <h3>Confirm Return</h3>
-                <form id="confirmBookForm">
-                    <div class="form-group">
-                        <label for="confirmBookId">Item ID</label>
-                        <input type="number" id="confirmBookId" placeholder="1" required>
-                    </div>
-                    <button type="submit" class="btn-action" id="confirmBookBtn" style="background: var(--success);">Confirm Return</button>
-                </form>
-            </section>
-
-            <section class="card dispute-section">
-                <h3>Raise Dispute</h3>
-                <form id="disputeBookForm">
-                    <div class="form-group">
-                        <label for="disputeBookId">Item ID</label>
-                        <input type="number" id="disputeBookId" placeholder="1" required>
-                    </div>
-                    <button type="submit" class="btn-action" id="raiseDisputeBtn" style="background: var(--error);">Raise Dispute</button>
-                </form>
-            </section>
+        <div class="container">
+            <div class="grid-2" style="max-width: 900px; margin: 0 auto;">
+                <a href="owner.html" class="card landing-card">
+                    <span class="icon">📖</span>
+                    <h3><span class="icon" style="font-size: 1.2rem;">👑</span> I'm a Lender</h3>
+                    <p>Add your books to the library shelf, confirm returns from borrowers, and manage any disputes that arise.</p>
+                </a>
+                <a href="renter.html" class="card landing-card">
+                    <span class="icon">🔎</span>
+                    <h3><span class="icon" style="font-size: 1.2rem;">📖</span> I'm a Reader</h3>
+                    <p>Browse the library catalog, borrow books you love, return them when you're done, and your deposit comes right back.</p>
+                </a>
+                <a href="arbitrator.html" class="card landing-card" style="grid-column: 1 / -1; max-width: 420px; margin: 0 auto; width: 100%;">
+                    <span class="icon">⚖️</span>
+                    <h3><span class="icon" style="font-size: 1.2rem;">⚖️</span> I'm an Arbitrator</h3>
+                    <p>Join the pool of trusted resolvers. Get randomly assigned to disputes and help keep the library fair.</p>
+                </a>
+            </div>
         </div>
-        
-        <div id="statusMessage" class="status-message"></div>
     </main>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js" type="application/javascript"></script>
-    <script src="app.js"></script>
 </body>
 </html>

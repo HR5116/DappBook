@@ -7,13 +7,14 @@
 const hre = require("hardhat");
 
 async function main() {
-  const [deployer, arbitrator] = await hre.ethers.getSigners();
+  const [deployer] = await hre.ethers.getSigners();
   const BookRental = await hre.ethers.getContractFactory("BookRental");
-  const bookRental = await BookRental.deploy(arbitrator.address);
+  const bookRental = await BookRental.deploy();
   await bookRental.deployed();
 
   console.log(`BookRental deployed to ${bookRental.address}`);
-  console.log(`Arbitrator address: ${arbitrator.address}`);
+  console.log(`Deployer: ${deployer.address}`);
+  console.log(`Arbitrator pool is empty — users must register via registerAsArbitrator()`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

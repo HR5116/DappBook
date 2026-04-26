@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookChain – Lender Dashboard</title>
+    <meta name="description" content="Add your books to the library, confirm returns, and manage disputes.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">📚</span>
+            <h1>BookChain</h1>
+        </a>
+        <div class="nav-links">
+            <a href="owner.html" class="active">Lender</a>
+            <a href="renter.html">Reader</a>
+            <a href="arbitrator.html">Arbitrator</a>
+            <button class="btn-connect" id="connectBtn">Connect Wallet</button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <h2>📖 Lender's Shelf</h2>
+            <p>Share your books with the world. Add them to the library, confirm returns, and handle any issues.</p>
+        </section>
+
+        <div id="statusMessage" class="status-message"></div>
+
+        <div class="container hidden" id="dashboard">
+            <div class="grid-2">
+
+                <!-- Add a Book to the Library -->
+                <section class="card">
+                    <h3><span class="icon">📝</span> Add a Book to the Library</h3>
+                    <form id="listBookForm">
+                        <div class="form-group">
+                            <label for="ipfsCID">Book Title / IPFS CID</label>
+                            <input type="text" id="ipfsCID" placeholder="e.g. The Great Gatsby or QmHash..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dailyPrice">Daily Lending Fee (ETH)</label>
+                            <input type="number" step="0.0001" min="0" id="dailyPrice" placeholder="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="deposit">Security Deposit (ETH)</label>
+                            <input type="number" step="0.0001" min="0" id="deposit" placeholder="0.05" required>
+                        </div>
+                        <button type="submit" class="btn-action">Add Book to Shelf</button>
+                    </form>
+                </section>
+
+                <!-- Confirm Book Return -->
+                <section class="card">
+                    <h3><span class="icon">✅</span> Confirm Book Return</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">
+                        Confirm that the borrower returned your book in good condition. The rental fee will be paid to you and the deposit refunded to the reader.
+                    </p>
+                    <form id="confirmForm">
+                        <div class="form-group">
+                            <label for="confirmId">Book ID</label>
+                            <input type="number" min="1" id="confirmId" placeholder="1" required>
+                        </div>
+                        <button type="submit" class="btn-action btn-success">Confirm Return</button>
+                    </form>
+                </section>
+
+                <!-- Raise Dispute About a Book -->
+                <section class="card">
+                    <h3><span class="icon">⚠️</span> Report Damaged Book</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">
+                        If your book was returned damaged or in poor condition, raise a dispute. A randomly chosen arbitrator will review the case and decide who receives the locked funds.
+                    </p>
+                    <form id="disputeForm">
+                        <div class="form-group">
+                            <label for="disputeId">Book ID</label>
+                            <input type="number" min="1" id="disputeId" placeholder="1" required>
+                        </div>
+                        <button type="submit" class="btn-action btn-danger">Report Issue</button>
+                    </form>
+                </section>
+
+                <!-- My Books on the Shelf -->
+                <section class="card full-width">
+                    <h3><span class="icon">📚</span> My Books on the Shelf</h3>
+                    <div id="myItems" class="items-grid">
+                        <div class="empty-state">
+                            <div class="icon">📭</div>
+                            <p>You haven't added any books yet. Add your first book above!</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js" type="application/javascript"></script>
+    <script src="config.js"></script>
+    <script src="owner.js"></script>
+</body>
+</html>

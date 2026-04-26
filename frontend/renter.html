@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookChain – Library Catalog</title>
+    <meta name="description" content="Browse the library catalog, borrow books, and return them when you're done.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">📚</span>
+            <h1>BookChain</h1>
+        </a>
+        <div class="nav-links">
+            <a href="owner.html">Lender</a>
+            <a href="renter.html" class="active">Reader</a>
+            <a href="arbitrator.html">Arbitrator</a>
+            <button class="btn-connect" id="connectBtn">Connect Wallet</button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <h2>🔎 Library Catalog</h2>
+            <p>Browse the shelves, borrow a book you love, and return it when you've finished reading.</p>
+        </section>
+
+        <div id="statusMessage" class="status-message"></div>
+
+        <div class="container hidden" id="dashboard">
+            <div class="grid-2">
+
+                <!-- Borrow a Book -->
+                <section class="card">
+                    <h3><span class="icon">📖</span> Borrow a Book</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">
+                        Enter the Book ID from the catalog below. You'll pay a security deposit + 1 day's lending fee upfront.
+                    </p>
+                    <p style="color: var(--warning); font-size: 0.8rem; margin-bottom: 1rem;" id="rentalCount">
+                        📚 Books Borrowed: 0 / 5
+                    </p>
+                    <form id="rentForm">
+                        <div class="form-group">
+                            <label for="rentId">Book ID</label>
+                            <input type="number" min="1" id="rentId" placeholder="1" required>
+                        </div>
+                        <div class="form-group" style="display: flex; align-items: flex-start; gap: 0.6rem;">
+                            <input type="checkbox" id="acceptTerms" style="width: auto; margin-top: 0.3rem; accent-color: var(--primary);">
+                            <label for="acceptTerms" style="font-size: 0.8rem; color: var(--text-muted); cursor: pointer;">
+                                I agree to take full responsibility for this book. I understand that keeping it beyond <strong style="color: var(--warning);">7 days</strong> will incur <strong style="color: var(--error);">double daily fees</strong>, and I may borrow a maximum of 5 books at a time.
+                            </label>
+                        </div>
+                        <button type="submit" class="btn-action">Borrow This Book</button>
+                    </form>
+                </section>
+
+                <!-- Return a Book -->
+                <section class="card">
+                    <h3><span class="icon">📤</span> Return a Book</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">
+                        Return the book you borrowed. Once the lender confirms it's in good condition, your <strong style="color: var(--success);">security deposit will be automatically refunded</strong> to your wallet.
+                    </p>
+                    <form id="returnForm">
+                        <div class="form-group">
+                            <label for="returnId">Book ID</label>
+                            <input type="number" min="1" id="returnId" placeholder="1" required>
+                        </div>
+                        <button type="submit" class="btn-action" style="margin-bottom: 0.8rem;">Return Book</button>
+                    </form>
+                    <form id="disputeForm">
+                        <div class="form-group">
+                            <label for="disputeId">Raise a Dispute (Book ID)</label>
+                            <input type="number" min="1" id="disputeId" placeholder="1" required>
+                        </div>
+                        <button type="submit" class="btn-action btn-danger">Raise Dispute About This Book</button>
+                    </form>
+                </section>
+
+                <!-- Library Catalog -->
+                <section class="card full-width">
+                    <h3><span class="icon">📚</span> Library Catalog</h3>
+                    <div class="search-wrapper">
+                        <input type="text" class="search-bar" id="searchBar" placeholder="Search by book title, lender address, or book ID...">
+                    </div>
+                    <div id="marketplace" class="items-grid">
+                        <div class="empty-state">
+                            <div class="icon">📭</div>
+                            <p>Connect your wallet to browse the library catalog.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js" type="application/javascript"></script>
+    <script src="config.js"></script>
+    <script src="renter.js"></script>
+</body>
+</html>

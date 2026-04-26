@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookChain – Arbitrator Panel</title>
+    <meta name="description" content="Register as a library arbitrator and help resolve book disputes fairly.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">📚</span>
+            <h1>BookChain</h1>
+        </a>
+        <div class="nav-links">
+            <a href="owner.html">Lender</a>
+            <a href="renter.html">Reader</a>
+            <a href="arbitrator.html" class="active">Arbitrator</a>
+            <button class="btn-connect" id="connectBtn">Connect Wallet</button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <h2>⚖️ Library Arbitrator</h2>
+            <p>Register as a trusted resolver. When a book dispute arises, you may be randomly chosen to settle it fairly.</p>
+            <p style="font-size: 0.85rem; margin-top: 0.5rem;" id="arbInfo">
+                Connect your wallet to check your arbitrator status.
+            </p>
+        </section>
+
+        <div id="statusMessage" class="status-message"></div>
+
+        <div class="container hidden" id="dashboard">
+            <div class="grid-2">
+
+                <!-- Registration -->
+                <section class="card">
+                    <h3><span class="icon">🎫</span> Join the Arbitrator Pool</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">
+                        Register yourself as a library arbitrator. When disputes arise between lenders and readers, you may be randomly selected to review the case and decide the outcome.
+                    </p>
+                    <div id="registrationButtons">
+                        <button class="btn-action btn-success" id="registerBtn" style="margin-bottom: 0.6rem;">Register as Arbitrator</button>
+                        <button class="btn-action btn-danger" id="unregisterBtn" style="display: none;">Leave Arbitrator Pool</button>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 1rem;" id="poolCount">
+                        Pool size: loading...
+                    </p>
+                </section>
+
+                <!-- Resolve Dispute -->
+                <section class="card">
+                    <h3><span class="icon">⚖️</span> Resolve a Book Dispute</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">
+                        If you've been assigned to a dispute, enter the Book ID and paste the wallet address of the rightful party. All locked funds (deposit + lending fee) will be transferred to the winner.
+                    </p>
+                    <form id="resolveForm">
+                        <div class="form-group">
+                            <label for="resolveId">Book ID</label>
+                            <input type="number" min="1" id="resolveId" placeholder="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="winnerAddress">Winner's Wallet Address</label>
+                            <input type="text" id="winnerAddress" placeholder="0x..." required>
+                        </div>
+                        <button type="submit" class="btn-action btn-success">Resolve Dispute</button>
+                    </form>
+                </section>
+
+                <!-- My Assigned Disputes -->
+                <section class="card full-width">
+                    <h3><span class="icon">🚨</span> Book Disputes Assigned to You</h3>
+                    <div id="myDisputes" class="items-grid">
+                        <div class="empty-state">
+                            <div class="icon">✅</div>
+                            <p>No book disputes assigned to you. The library is peaceful!</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Arbitrator Pool -->
+                <section class="card full-width">
+                    <h3><span class="icon">👥</span> Registered Arbitrators</h3>
+                    <div id="poolList" class="items-grid">
+                        <div class="empty-state">
+                            <div class="icon">📭</div>
+                            <p>No one has registered as an arbitrator yet. Be the first!</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js" type="application/javascript"></script>
+    <script src="config.js"></script>
+    <script src="arbitrator.js"></script>
+</body>
+</html>
