@@ -1,6 +1,6 @@
 # 📚 BookChain – Decentralized Book Rental Platform
 
-**Project Number:** Project – Decentralised Book Rental
+**Project:** – Decentralised Book Rental
 
 ## Team Members
 - Mohd Hassan Raza Ansari - 240008019
