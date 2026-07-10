@@ -61,6 +61,7 @@ contract BookRental is ReentrancyGuard, Ownable {
     event ArbitratorRegistered(address indexed arbitrator);
     event ArbitratorRemoved(address indexed arbitrator);
 
+
     constructor() Ownable(msg.sender) {
         // Auto-register deployer as fallback arbitrator so we don't get stuck if no one registers
         isArbitrator[msg.sender] = true;
@@ -106,6 +107,7 @@ contract BookRental is ReentrancyGuard, Ownable {
     function getArbitratorCount() external view returns (uint256) {
         return arbitratorPool.length;
     }
+
 
     /// @notice Get all registered arbitrators
     /// @return An array containing the addresses of all registered arbitrators
@@ -191,15 +193,14 @@ contract BookRental is ReentrancyGuard, Ownable {
         item.rentedAt = uint40(block.timestamp);
         item.returnedAt = 0;
         item.disputeRaisedAt = 0;
-
         unchecked { ++activeRentals[msg.sender]; }
-
         emit ItemRented(_itemId, msg.sender);
     }
 
     /// @notice Return item back to owner
     /// @param _itemId The ID of the item
-    function returnItem(uint256 _itemId) external {
+    function returnItem(uint256 _itemId) external 
+    {
         Item storage item = items[_itemId];
         if (item.status != Status.Rented) revert BookRental__InvalidStatus();
         if (msg.sender != item.renter) revert BookRental__NotRenter();
